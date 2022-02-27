@@ -1,0 +1,220 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+  font-family: 'Poppins', sons-serif;
+  box-sizing: border-box;
+  color: var(--text-color);
+}
+
+:root {
+  /* ===== Colors ===== */
+  --body-color: #E4E9F7;
+  --sidebar-color: #FFF;
+  --primary-color: #695CFE;
+  --primary-color-light: #F6F5FF;
+  --toggle-color: #DDD;
+  --text-color: #707070;
+}
+
+body.dark{
+  --body-color: #18191a;
+    --sidebar-color: #242526;
+    --primary-color: #3a3b3c;
+    --primary-color-light: #3a3b3c;
+    --toggle-color: #fff;
+    --text-color: #ccc;
+}
+
+/* body */
+body{
+  background-color: var(--body-color);
+  transition: .3s;
+}
+
+/* sidebar */
+.sidebar{
+  background-color: var(--sidebar-color);
+  position: fixed;
+  width: 250px;
+  height: 100vh;
+  padding: 5px;
+  transition: .3s;
+}
+
+.sidebar.close{
+  width: 65px;
+}
+.sidebar .text{
+  white-space: nowrap;
+  transition: .3s;
+}
+
+.sidebar.close .text {
+  opacity: 0;
+}
+
+.sidebar header{
+  display: flex;
+  align-items: center;
+  margin: 20px 0 35px;
+}
+
+.sidebar header .logo{
+  min-width: 60px;
+  display: flex;
+  justify-content: center;
+}
+.sidebar header .logo img{
+  width: 26px;
+}
+.sidebar header .textbox .title{
+  font-size: 20px;
+  font-weight: 900;
+}
+.sidebar header .textbox .description{
+  margin-top: 3px;
+}
+
+.sidebar header .toggle{
+  position: absolute;
+  right : -15px
+}
+.sidebar header .toggle .toggleBtn{
+  background-color: var(--primary-color);
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  transition: .3s;
+}
+.sidebar.close header .toggle .toggleBtn{
+  transform: rotateY(-180deg);
+}
+.sidebar header .toggle .toggleBtn i{
+  color: var(--toggle-color);
+  font-size: 20px;
+}
+
+.sidebar .mainmenu{
+  height: calc(100% - 100px);
+  padding-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.sidebar .mainmenu .search{
+  background-color: var(--primary-color-light);
+  transition: .3s;
+}
+.sidebar .mainmenu .search input{
+  height: 100%;
+  background-color: var(--primary-color-light);
+  outline: none;
+  border: none;
+  transition: .3s;
+}
+.sidebar.close .mainmenu .search input{
+  opacity: 0;
+}
+
+.sidebar .mainmenu li{
+  height: 50px;
+  display: flex;
+  align-items: center;
+  margin-top: 5px;
+  font-size: 16px;
+  border-radius: 6px;
+}
+
+.sidebar .mainmenu li a{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: .3s;
+}
+.sidebar .mainmenu li:hover a{
+  background-color: var(--primary-color);
+}
+.sidebar .mainmenu li:hover a .bx,
+.sidebar .mainmenu li:hover a .text{
+  color : var(--primary-color-light)
+}
+
+.sidebar .mainmenu li .bx{
+  min-width: 60px;
+  font-size: 24px;
+  text-align: center;
+}
+
+.sidebar .controlbox .darkmode{
+  background-color: var(--primary-color-light);
+  transition: .3s;
+}
+
+.sidebar .controlbox .darkmode .summoon{
+  width: 60px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.sidebar .controlbox .darkmode .summoon i{
+  position: absolute;
+  transition: .3s;
+}
+
+body .sidebar .controlbox .darkmode .summoon .moon,
+body.dark .sidebar .controlbox .darkmode .summoon .sun{
+  opacity: 1;
+}
+
+body.dark .sidebar .controlbox .darkmode .summoon .moon,
+body .sidebar .controlbox .darkmode .summoon .sun{
+  opacity: 0;
+}
+
+.sidebar .controlbox .darkmode .sunmoonBtn{
+  width: 40px;
+  height: 20px;
+  position: absolute;
+  right : 15px;
+  border-radius: 20px;
+  background-color: var(--toggle-color);
+}
+
+.sidebar .controlbox .darkmode .sunmoonBtn::before{
+  content: '';
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  position: absolute;
+  top: 2px;
+  left: 3px;
+  background-color: var(--sidebar-color);
+  transition: .2s;
+}
+
+body.dark .sidebar .controlbox .darkmode .sunmoonBtn::before{
+  transform: translateX(18px);
+}
+
+section{
+  width: calc(100% - 250px);
+  position: absolute;
+  right: 0;
+  transition: .5s;
+}
+.sidebar.close ~ section{
+  width: calc(100% - 65px);
+}
+
+section .container{
+  font-size: 30px;
+  margin: 20px;
+}
